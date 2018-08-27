@@ -19,11 +19,12 @@
                                 00000                   Blog:www.superl.org
                                 00000
 '''
+from __future__ import print_function
 import sys
 import re
 import os
 import urllib
-from __future__ import print_function
+
 
 try:
     import urllib2
@@ -95,5 +96,8 @@ def save(url, savePath="git/"):
 
 
 if __name__ == "__main__":
+    saveDir = "git"
+    if not os.path.exists(saveDir):
+        os.mkdir(saveDir)
     base_url = "http://www.superl.org/.git/"
     save(base_url)
