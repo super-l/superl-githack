@@ -13,8 +13,7 @@
 
 # 使用方法
 ##### 判断网站是否存在.git泄露漏洞；
-##### 修改102行代码base_url = "http://www.superl.org/.git/" 中的地址；
-##### 运行：python superl-githack.py
+##### 运行：python superl-githack.py http://www.xxx.com/.git/
 ##### 之后会在工具的当前目录下生成git目录，里面存放该网站的git文件，如图：
 ![image](https://github.com/super-l/superl-githack/blob/master/test1.png)
 ![image](https://github.com/super-l/superl-githack/blob/master/test2.png)

@@ -48,6 +48,27 @@ def getHtmlContent(target_url):
     return response.read()
 
 
+def banner():
+    logostr = """\033[92m \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n
+                                                                          00000     
+                                                                          00000     
+                                                                          00000     
+          00000000    00000  00000  00000000000     00000000    000000000 00000     
+         00000000000  00000  00000  000000000000   00000000000  000000000 00000     
+         00000  000   00000  00000  000000 00000  000000 00000  00000000  00000     
+         000000000    00000  00000  00000   0000  0000000000000 000000    00000     
+          0000000000  00000  00000  00000   00000 0000000000000 00000     00000     
+             0000000  00000  00000  00000   00000 00000         00000     00000     
+         00000  0000  000000000000  000000000000  000000000000  00000     00000     
+         00000000000  000000000000  000000000000   00000000000  00000     00000     
+          000000000   0000000000    00000000000     00000000    00000     00000     
+                                    00000                                           
+                                    00000                 blog:www.superl.org       
+                                    00000                                           
+         {Author:superl(Nepenthes security team)                   Version 1.0            
+    """
+    print(logostr)
+
 def getUrlList(htmlcontent):
     regex = r'<tr><td valign="top"><img src=".*?" alt="(?P<url>.*?)"></td><td><a href="(?P<dataurl>.*?)">(?P<title>.*?)</a>'
     content = re.compile(regex, re.S)
@@ -96,8 +117,18 @@ def save(url, savePath="git/"):
 
 
 if __name__ == "__main__":
+    banner()
     saveDir = "git"
     if not os.path.exists(saveDir):
         os.mkdir(saveDir)
-    base_url = "http://www.superl.org/.git/"
-    save(base_url)
+
+    print("Usage: python " + sys.argv[0] + " http://www.xxx.com/.git/")
+
+    # Sets the keyword and number of pages
+    if sys.version > '3':
+        url = input('\033[1;33;40mplease input .git url:')
+    else:
+        url = raw_input('\033[1;33;40mplease input .git url:')
+
+    # url = "http://www.superl.org/.git/"
+    save(url)
